@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -19,7 +18,7 @@ model User {
   name          String
   email         String    @unique
   password_hash String
-  createdf_at   DateTime  @default(now())
+  created_at    DateTime  @default(now())
   checkIns      checkIn[]
 
   @@map("users")

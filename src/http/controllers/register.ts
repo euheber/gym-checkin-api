@@ -25,7 +25,9 @@ export const createUser = async (request: FastifyRequest, reply: FastifyReply) =
     if(err instanceof UserAlreadyExistsError){ 
       return reply.status(409).send({message: err.message})
     }
-    return reply.status( 500).send(err); // ! A corrigir
+
+    throw err
+
   }
 
   return reply.status(201).send();
