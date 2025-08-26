@@ -4,7 +4,7 @@ import { RegisterUseCase } from "@/services/register_service";
 import { FastifyReply, FastifyRequest } from "fastify";
 import z from "zod";
 
-export const createUser = async (request: FastifyRequest, reply: FastifyReply) => {
+export const register = async (request: FastifyRequest, reply: FastifyReply) => {
 
 
   const registerBodySchema = z.object({

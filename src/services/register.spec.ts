@@ -3,9 +3,9 @@ import { RegisterUseCase } from "./register_service";
 import { compare } from "bcryptjs";
 import { inMemoryRepository } from "../repositories/in-memory-repo/in-memory-users-repo";
 import { UserAlreadyExistsError } from "./errors/userAlreadyExists";
-import { string } from "zod";
 
-describe("Register user case", () => {
+
+describe("Register use case", () => {
     ""
   it("Should hash  the user password", async () => {
     const inMemoryRepo = new inMemoryRepository();
@@ -34,7 +34,7 @@ describe("Register user case", () => {
       password: "123456",
     });
 
-    expect(() =>
+   await expect(() =>
       registerUseCase.handle({
         name: "John Doe",
         email,
@@ -55,4 +55,6 @@ describe("Register user case", () => {
 
     expect(user.id).toEqual(expect.any(String));
   });
+
+
 });
